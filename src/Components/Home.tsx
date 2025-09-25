@@ -31,8 +31,8 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
           </Reveal>
 
           {/* Modern glassmorphism social icons */}
-          <Reveal className="w-full" variant="fade-up" delay={100}>
-          <div className="flex gap-3 sm:gap-4">
+          <Reveal className="self-center lg:self-end" variant="fade-up" delay={100}>
+          <div className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-end">
             <a
               href="https://www.linkedin.com/in/varadharajan-vijayasimhan/"
               target="_blank"
