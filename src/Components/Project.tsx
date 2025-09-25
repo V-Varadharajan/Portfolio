@@ -1,5 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Github, ExternalLink, Star } from "lucide-react";
+
+// Carousel component for 2 images with smooth fade transition
+const ProjectImageCarousel = ({ images, alt }: { images: string[]; alt: string }) => {
+  const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % images.length);
+        setFade(true);
+      }, 400); // match fade-out duration
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <img
+      src={images[current]}
+      alt={`${alt} ${current + 1}`}
+      className={`w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 rounded-lg transition-opacity duration-400 ${fade ? "opacity-100" : "opacity-0"}`}
+      style={{ transition: "opacity 0.4s" }}
+    />
+  );
+};
 
 const Projects = ({ projects }: { projects: any[] }) => (
   <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -26,11 +52,15 @@ const Projects = ({ projects }: { projects: any[] }) => (
               </div>
             </div>
             <div className="relative overflow-hidden">
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+              {Array.isArray(project.image) && project.image.length === 2 ? (
+                <ProjectImageCarousel images={project.image} alt={project.title} />
+              ) : (
+                <img 
+                  src={Array.isArray(project.image) ? project.image[0] : project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500"></div>
             </div>
             <div className="p-8">
@@ -62,6 +92,7 @@ const Projects = ({ projects }: { projects: any[] }) => (
                   <Github size={18} className="mr-2" />
                   Code
                 </a>
+                {project.demo && (
                 <a
                   href={project.demo}
                   target="_blank"
@@ -71,6 +102,7 @@ const Projects = ({ projects }: { projects: any[] }) => (
                   <ExternalLink size={18} className="mr-2" />
                   Live Demo
                 </a>
+              )}
               </div>
             </div>
           </div>
@@ -83,13 +115,24 @@ const Projects = ({ projects }: { projects: any[] }) => (
             className="group bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 dark:border-gray-700/50 overflow-hidden hover:scale-105 transition-all duration-500"
           >
             <div className="relative overflow-hidden">
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              {Array.isArray(project.image) && project.image.length === 2 ? (
+                <ProjectImageCarousel images={project.image} alt={project.title} />
+              ) : Array.isArray(project.image) ? (
+                <img
+                  src={project.image[0]}
+                  alt={project.title}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500"></div>
             </div>
+
             <div className="p-6">
               <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {project.title}
@@ -124,6 +167,7 @@ const Projects = ({ projects }: { projects: any[] }) => (
                   <Github size={16} className="mr-1" />
                   Code
                 </a>
+                {project.demo && (
                 <a
                   href={project.demo}
                   target="_blank"
@@ -133,6 +177,7 @@ const Projects = ({ projects }: { projects: any[] }) => (
                   <ExternalLink size={16} className="mr-1" />
                   Demo
                 </a>
+                )}
               </div>
             </div>
           </div>

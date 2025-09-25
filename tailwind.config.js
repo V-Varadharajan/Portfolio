@@ -18,6 +18,9 @@ export default {
         'gradient': 'gradient 6s ease infinite',
         'typewriter': 'typewriter 2s steps(20) infinite',
         'pulse-slow': 'pulse 3s infinite',
+        'rocket-travel': 'rocketTravel 3s ease-in-out infinite',
+        'pulse-text': 'pulseText 1.5s ease-in-out infinite',
+        'dots': 'dots 1.5s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -69,6 +72,38 @@ export default {
         typewriter: {
           '0%, 50%': { opacity: '1' },
           '51%, 100%': { opacity: '0' },
+        },
+        rocketTravel: {
+          '0%': {
+            transform: 'translateX(-100px) translateY(0px)',
+          },
+          '50%': {
+            transform: 'translateX(0px) translateY(-10px)',
+          },
+          '100%': {
+            transform: 'translateX(100px) translateY(0px)',
+          },
+        },
+        pulseText: {
+          '0%, 100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+          '50%': {
+            opacity: '0.7',
+            transform: 'scale(1.05)',
+          },
+        },
+        dots: {
+          '0%, 20%': {
+            opacity: '0',
+          },
+          '50%': {
+            opacity: '1',
+          },
+          '100%': {
+            opacity: '0',
+          },
         },
       },
       backdropBlur: {
