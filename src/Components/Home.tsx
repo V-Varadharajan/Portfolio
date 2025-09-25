@@ -1,6 +1,7 @@
 import React from "react";
 import { Rocket, ArrowRight, Mail, Download, ChevronDown } from "lucide-react";
 import { Linkedin, Github } from "lucide-react";
+import Reveal from "./Reveal";
 import image from "../Asserts/image.png";
 import resume from "../Asserts/Varadharajan-resume.pdf";
 
@@ -19,18 +20,24 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
         
         {/* Profile Section - Shows first on mobile with modern styling */}
         <div className="flex flex-col items-center text-center lg:order-2 lg:items-end">
+          <Reveal variant="fade-in">
           <img
             src={image}
-            alt="profile"
+            alt="Portrait of Varadharajan Vijayasimhan"
             className="rounded-2xl w-48 h-60 sm:w-56 sm:h-72 lg:w-64 lg:h-80 xl:w-[340px] xl:h-[420px] object-cover shadow-2xl border-4 border-[#232425] mb-8"
+            loading="lazy"
+            decoding="async"
           />
+          </Reveal>
 
           {/* Modern glassmorphism social icons */}
+          <Reveal className="w-full" variant="fade-up" delay={100}>
           <div className="flex gap-3 sm:gap-4">
             <a
               href="https://www.linkedin.com/in/varadharajan-vijayasimhan/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
               className="group relative p-4 sm:p-5 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-110 hover:bg-blue-500/20 active:scale-95"
             >
               <Linkedin size={22} className="text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
@@ -40,6 +47,7 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
               href="https://github.com/V-Varadharajan"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className="group relative p-4 sm:p-5 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-110 hover:bg-gray-800/20 active:scale-95"
             >
               <Github size={22} className="text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors duration-300" />
@@ -49,6 +57,7 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
               href="https://www.reddit.com/user/Mysterious-Vast8010/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Reddit profile"
               className="group relative p-4 sm:p-5 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-110 hover:bg-orange-500/20 active:scale-95"
             >
               <svg
@@ -61,18 +70,24 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 -z-10"></div>
             </a>
           </div>
+          </Reveal>
         </div>
 
         {/* Content Section - Mobile optimized */}
         <div className="text-center lg:text-left lg:order-1 space-y-6">
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold text-black dark:text-white tracking-tight mb-4 leading-tight">
-              VARADHARAJAN VIJAYASIMHAN
-            </h1>
-            <div className="w-20 sm:w-24 lg:w-32 h-1 bg-orange-500 mb-6 mx-auto lg:mx-0"></div>
+            <Reveal variant="fade-up">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold text-black dark:text-white tracking-tight mb-4 leading-tight">
+                VARADHARAJAN VIJAYASIMHAN
+              </h1>
+            </Reveal>
+            <Reveal variant="fade-left" delay={80}>
+              <div className="w-20 sm:w-24 lg:w-32 h-1 bg-orange-500 mb-6 mx-auto lg:mx-0"></div>
+            </Reveal>
           </div>
 
           <div className="space-y-4 max-w-2xl mx-auto lg:mx-0">
+            <Reveal variant="fade-up">
             <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
               2025 Computer Science Engineering graduate specializing in Blockchain technology.
               I love building robust, scalable, and innovative solutions using
@@ -80,13 +95,16 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
               <span className="font-semibold text-purple-600 dark:text-purple-400"> Web</span>, and
               <span className="font-semibold text-green-600 dark:text-green-400"> Blockchain</span> development.
             </p>
-
+            </Reveal>
+            <Reveal variant="fade-up" delay={120}>
             <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base leading-relaxed">
               I thrive in teams that share a vision of "technology for good" and am humbled by their support. I'm excited by the ever-growing challenges in my field and keen to take them on.
             </p>
+            </Reveal>
           </div>
 
           {/* Modern mobile-first CTA buttons with better hierarchy */}
+          <Reveal variant="fade-up" delay={160}>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
             {/* Primary CTA - Larger and more prominent */}
             <button
@@ -126,13 +144,16 @@ const Home: React.FC<HomeProps> = ({ scrollToSection }) => (
               </a>
             </div>
           </div>
+          </Reveal>
 
           {/* Scroll indicator */}
+          <Reveal variant="fade-in" delay={200}>
           <div className="flex justify-center lg:justify-start pt-4">
             <div className="animate-bounce">
               <ChevronDown size={28} className="text-gray-400 dark:text-gray-500" />
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </div>

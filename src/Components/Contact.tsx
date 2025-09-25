@@ -1,5 +1,5 @@
-import React from "react";
-import { Send, Mail, Phone, MapPin, Linkedin, Github, Rocket, Zap, Heart } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Linkedin, Github, Rocket, Zap } from "lucide-react";
+import Reveal from "./Reveal";
 
 const Contact = () => (
   <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl scroll-mt-24 md:scroll-mt-28 relative">
@@ -12,19 +12,26 @@ const Contact = () => (
     <div className="max-w-7xl mx-auto">
       {/* Mobile-optimized header */}
       <div className="text-center mb-12 sm:mb-16">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight">
-          Let's Create Something Amazing
-        </h2>
-        <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-4 sm:mb-6"></div>
-        <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-          Ready to bring your vision to life? Let's collaborate and build something extraordinary together.
-        </p>
+        <Reveal variant="fade-up">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight">
+            Let's Create Something Amazing
+          </h2>
+        </Reveal>
+        <Reveal variant="fade-left" delay={80}>
+          <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-4 sm:mb-6"></div>
+        </Reveal>
+        <Reveal variant="fade-up" delay={120}>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            Ready to bring your vision to life? Let's collaborate and build something extraordinary together.
+          </p>
+        </Reveal>
       </div>
       
       {/* Mobile-first responsive grid */}
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16">
         {/* Enhanced Contact Form - Mobile First */}
-        <div className="order-2 lg:order-1 bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/50">
+  <Reveal variant="fade-up">
+  <div className="order-2 lg:order-1 bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/50">
           <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
               <Send size={16} className="sm:w-5 sm:h-5 text-white" />
@@ -86,9 +93,11 @@ const Contact = () => (
               <Zap size={18} className="sm:w-5 sm:h-5 ml-2 animate-pulse" />
             </button>
           </form>
-        </div>
+  </div>
+  </Reveal>
         {/* Contact Info & Social Links - Mobile Optimized */}
         <div className="order-1 lg:order-2 space-y-6 sm:space-y-8">
+          <Reveal variant="fade-up">
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/50">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
@@ -97,7 +106,7 @@ const Contact = () => (
               Get In Touch
             </h3>
             <div className="space-y-4 sm:space-y-6">
-              <a href="mailto:varadharajan2507@gmail.com" className="flex items-center p-3 sm:p-4 bg-white/50 dark:bg-gray-900/50 rounded-xl sm:rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300">
+              <a href="mailto:varadharajan2507@gmail.com" aria-label="Send email" className="flex items-center p-3 sm:p-4 bg-white/50 dark:bg-gray-900/50 rounded-xl sm:rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
                   <Mail size={16} className="sm:w-5 sm:h-5 text-white" />
                 </div>
@@ -106,7 +115,7 @@ const Contact = () => (
                   <div className="text-gray-600 dark:text-gray-300 text-sm sm:text-base truncate">varadharajan2507@gmail.com</div>
                 </div>
               </a>
-              <a href="tel:+917871132754" className="flex items-center p-3 sm:p-4 bg-white/50 dark:bg-gray-900/50 rounded-xl sm:rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300">
+              <a href="tel:+917871132754" aria-label="Call phone" className="flex items-center p-3 sm:p-4 bg-white/50 dark:bg-gray-900/50 rounded-xl sm:rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
                   <Phone size={16} className="sm:w-5 sm:h-5 text-white" />
                 </div>
@@ -126,6 +135,8 @@ const Contact = () => (
               </div>
             </div>
           </div>
+          </Reveal>
+          <Reveal variant="fade-up" delay={120}>
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/50">
             <h4 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Connect With Me</h4>
             
@@ -135,6 +146,7 @@ const Contact = () => (
                 href="https://www.linkedin.com/in/varadharajan-vijayasimhan/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
                 className="group relative p-4 sm:p-5 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-110 hover:bg-blue-500/20 active:scale-95"
               >
                 <Linkedin size={24} className="sm:w-7 sm:h-7 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
@@ -144,6 +156,7 @@ const Contact = () => (
                 href="https://github.com/V-Varadharajan"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub profile"
                 className="group relative p-4 sm:p-5 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-110 hover:bg-gray-800/20 active:scale-95"
               >
                 <Github size={24} className="sm:w-7 sm:h-7 text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors duration-300" />
@@ -153,6 +166,7 @@ const Contact = () => (
                 href="https://www.reddit.com/user/Mysterious-Vast8010/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Reddit profile"
                 className="group relative p-4 sm:p-5 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-110 hover:bg-orange-500/20 active:scale-95"
               >
                 <svg
@@ -192,6 +206,7 @@ const Contact = () => (
               </ul>
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </div>

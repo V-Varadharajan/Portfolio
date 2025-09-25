@@ -1,4 +1,3 @@
-import React from "react";
 import { Heart } from "lucide-react";
 
 const Footer = () => (
@@ -38,7 +37,7 @@ const Footer = () => (
           </h3>
           <div className="space-y-2">
             <a 
-              href="mailto:varadharajan.vijayasimhan@gmail.com"
+              href="mailto:varadharajan2507@gmail.com"
               className="block text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base"
             >
               📧 varadharajan2507@gmail.com
@@ -91,7 +90,7 @@ const Footer = () => (
           <span className="hidden sm:inline">•</span>
           <span>📄 MIT License</span>
           <span className="hidden sm:inline">•</span>
-          <span>🚀 Deployed on Vercel</span>
+          <span>🚀 Deployed on Firebase</span>
         </div>
       </div>
     </div>

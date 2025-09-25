@@ -6,8 +6,10 @@ import DT_3 from './DT_3.png';
 import UPC_1 from './UPC_1.png';
 import UPC_2 from './UPC_2.png';
 import WorkProgress from './WorkProgress.png';
+import LogoImage from './logo.png';
 
 export {ChatApp_1,ChatApp_2,
     DT_1,DT_2,DT_3,
     UPC_1,UPC_2,
-    WorkProgress};
+    WorkProgress,
+    LogoImage};

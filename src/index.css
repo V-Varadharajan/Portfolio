@@ -285,3 +285,19 @@ textarea:focus {
   background: rgba(59, 130, 246, 0.3);
   color: inherit;
 }
+
+/* Reveal on scroll utility */
+.reveal {
+  opacity: 0;
+  transition: opacity 600ms ease, transform 600ms ease, filter 600ms ease;
+  will-change: opacity, transform, filter;
+}
+.reveal.fade-in { transform: none; }
+.reveal.fade-up { transform: translateY(16px); }
+.reveal.fade-left { transform: translateX(16px); }
+.reveal.zoom-in { transform: scale(0.98); filter: blur(2px); }
+.reveal.reveal-visible { opacity: 1; transform: none; filter: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+}

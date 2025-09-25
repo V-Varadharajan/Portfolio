@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Github, ExternalLink, Star } from "lucide-react";
+import Reveal from "./Reveal";
 
 // Carousel component for 2 images with smooth fade transition
 const ProjectImageCarousel = ({ images, alt }: { images: string[]; alt: string }) => {
@@ -23,6 +24,8 @@ const ProjectImageCarousel = ({ images, alt }: { images: string[]; alt: string }
       alt={`${alt} ${current + 1}`}
       className={`w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 rounded-lg transition-opacity duration-400 ${fade ? "opacity-100" : "opacity-0"}`}
       style={{ transition: "opacity 0.4s" }}
+      loading="lazy"
+      decoding="async"
     />
   );
 };
@@ -31,16 +34,23 @@ const Projects = ({ projects }: { projects: any[] }) => (
   <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
     <div className="max-w-7xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Featured Projects
-        </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Showcasing innovative solutions that push boundaries and deliver exceptional user experiences
-        </p>
+        <Reveal variant="fade-up">
+          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+        </Reveal>
+        <Reveal variant="fade-left" delay={80}>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"></div>
+        </Reveal>
+        <Reveal variant="fade-up" delay={120}>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Showcasing innovative solutions that push boundaries and deliver exceptional user experiences
+          </p>
+        </Reveal>
       </div>
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         {projects.filter(p => p.featured).map((project, index) => (
+          <Reveal key={`featured-${index}`} variant="fade-up">
           <div 
             key={index} 
             className="group relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden hover:scale-105 transition-all duration-500"
@@ -59,6 +69,8 @@ const Projects = ({ projects }: { projects: any[] }) => (
                   src={Array.isArray(project.image) ? project.image[0] : project.image}
                   alt={project.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500"></div>
@@ -106,10 +118,12 @@ const Projects = ({ projects }: { projects: any[] }) => (
               </div>
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.filter(p => !p.featured).map((project, index) => (
+          <Reveal key={`other-${index}`} variant="fade-up" delay={index * 60}>
           <div 
             key={index} 
             className="group bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 dark:border-gray-700/50 overflow-hidden hover:scale-105 transition-all duration-500"
@@ -122,12 +136,16 @@ const Projects = ({ projects }: { projects: any[] }) => (
                   src={project.image[0]}
                   alt={project.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
               ) : (
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500"></div>
@@ -181,6 +199,7 @@ const Projects = ({ projects }: { projects: any[] }) => (
               </div>
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
     </div>
