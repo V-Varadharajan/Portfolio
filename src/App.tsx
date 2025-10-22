@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {ChatApp_1, ChatApp_2, DT_1,DT_2,DT_3, UPC_1,UPC_2, WorkProgress} from './Asserts/ImageNav';
+import {ChatApp_1, ChatApp_2, DT_1,DT_2,DT_3, UPC_1,UPC_2, VDApp} from './Asserts/ImageNav';
 import Navigator from './Components/Navigator';
 import Home from './Components/Home';
 import About from './Components/About';
@@ -130,14 +130,16 @@ const [darkMode, setDarkMode] = useState(false);
       github: 'https://github.com/V-Varadharajan/Oxford-Tailors',
       demo: 'https://oxford-tailors.vercel.app/',
       tech: ['React', 'Mysql', 'Node.js', 'Express', 'HTML', 'JavaScript'],
-      featured: false
+      featured: true
     },
     {
-      title: 'Working in my 4th project — publishing soon. 😀',
-      description: '',
-      image: [WorkProgress],
-      tech: [],
-      featured: false
+      title: 'Voting DApp',
+      description: 'A decentralized voting DApp on Eclipse TestNet, enabling secure, transparent, and tamper-proof elections with wallet-based voter authentication.',
+      image: [VDApp],
+      tech: ['Solidity','Hardhat','MetaMask','React','TypeScript'],
+      github: 'https://github.com/V-Varadharajan/Voting-DApp.git',
+      demo: 'https://voting-d-app-eosin.vercel.app/',
+      featured: true
     }
   ];
 
