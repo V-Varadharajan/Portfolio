@@ -138,7 +138,7 @@ const [darkMode, setDarkMode] = useState(false);
       image: [VDApp],
       tech: ['Solidity','Hardhat','MetaMask','React','TypeScript'],
       github: 'https://github.com/V-Varadharajan/Voting-DApp.git',
-      demo: 'https://voting-d-app-eosin.vercel.app/',
+      demo: 'https://voting-d-app-eight.vercel.app/',
       featured: true
     }
   ];
